@@ -1,13 +1,18 @@
-<h1><%= "#{@car.brand} - #{@car.model}" %></h1>
+<h1>Car: <%= @car.brand %></h1>
+<h3>Model: <%= @car.model %></h3>
 <h3>Year: <%= @car.year %></h3>
 <h3>Fuel type: <%= @car.fuel %></h3>
+<hr>
+
 <hr>
 <%= simple_form_for [@car, @review] do |f| %>
   <%= f.input :comment %>
   <%= f.input :rating, collection: 0..5 %>
-  <%= f.submit "Submit New Review" %>
+  <%= f.submit %>
 <% end %>
 <hr>
-<%= @car.reviews.each do |review| %>
+
+<% @car.reviews.each do |review| %>
   <p>Comment: <%= review.comment %> | Rating: <%= review.rating %></p>
 <% end %>
+<hr>
