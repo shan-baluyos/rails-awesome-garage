@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   def create
-    # raise
     @review = Review.new(review_params)
     @car = Car.find(params[:car_id])
+    raise
     @review.car = @car
 
     if @review.save
